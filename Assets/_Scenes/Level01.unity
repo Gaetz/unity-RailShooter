@@ -430,7 +430,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 100.8
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circuit: {fileID: 2062383513}
-  lookAheadForTargetOffset: 5
+  lookAheadForTargetOffset: 2
   lookAheadForTargetFactor: 0.1
   lookAheadForSpeedOffset: 10
   lookAheadForSpeedFactor: 0.2
@@ -554,7 +554,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4945801073747084, guid: d7d728d381f237b45a1d8b1afe357753, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 7.29
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4945801073747084, guid: d7d728d381f237b45a1d8b1afe357753, type: 2}
       propertyPath: m_LocalRotation.x

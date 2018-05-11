@@ -5,13 +5,13 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class Player : MonoBehaviour {
 
-	[Tooltip("In m/s")][SerializeField] float speed = 17.0f;
-	[SerializeField] float xRange = 8.5f;
-	[SerializeField] float yRange = 4.5f;
+	[Tooltip("In m/s")][SerializeField] float speed = 20.0f;
+	[SerializeField] float xRange = 9f;
+	[SerializeField] float yRange = 5f;
 	[SerializeField] float positionPitchFactor = -5f;
 	[SerializeField] float controlPitchFactor = -20f;
 	[SerializeField] float positionYawFactor = -5f;
-	[SerializeField] float controlRollFactor = -20f;
+	[SerializeField] float controlRollFactor = -25f;
 
 	float xThrow, yThrow;
 
