@@ -3,21 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class Player : MonoBehaviour {
+public class PlayerController : MonoBehaviour {
 
+	[Header("Control")]
 	[Tooltip("In m/s")][SerializeField] float speed = 20.0f;
 	[SerializeField] float xRange = 9f;
 	[SerializeField] float yRange = 5f;
+
+	[Header("Automatic rotation")]
 	[SerializeField] float positionPitchFactor = -5f;
 	[SerializeField] float controlPitchFactor = -20f;
 	[SerializeField] float positionYawFactor = -5f;
 	[SerializeField] float controlRollFactor = -25f;
 
 	float xThrow, yThrow;
+	bool isControlEnabled;
 
 	// Use this for initialization
 	void Start () {
-		
+		isControlEnabled = true;
 	}
 	
 	// Update is called once per frame
@@ -40,5 +44,10 @@ public class Player : MonoBehaviour {
 		float yaw = transform.localPosition.x * positionYawFactor;
 		float roll = xThrow * controlRollFactor;
 		transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
+	}
+
+	void OnPlayerDeath() {
+		Debug.Log("Died");
+		isControlEnabled = false;
 	}
 }
