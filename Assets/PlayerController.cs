@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnPlayerDeath() {
-		Debug.Log("Died");
 		isControlEnabled = false;
 	}
 }
