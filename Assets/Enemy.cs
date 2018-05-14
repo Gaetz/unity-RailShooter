@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
+	[SerializeField] Transform parent;
+	[SerializeField] GameObject deathFx;
 	BoxCollider boxCollider;
 
 	void Start () {
@@ -13,6 +15,9 @@ public class Enemy : MonoBehaviour {
 
 
 	void OnParticleCollision(GameObject other) {
+		GameObject fx = Instantiate(deathFx, transform.position, Quaternion.identity);
+		fx.transform.parent = parent;
 		Destroy(gameObject);
+		Destroy(fx, 2f);
 	}
 }
