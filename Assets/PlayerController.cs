@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
 	[Tooltip("In m/s")][SerializeField] float speed = 20.0f;
 	[SerializeField] float xRange = 9f;
 	[SerializeField] float yRange = 5f;
+	[SerializeField] GameObject[] guns;
 
 	[Header("Automatic rotation")]
 	[SerializeField] float positionPitchFactor = -5f;
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour {
 		yThrow = CrossPlatformInputManager.GetAxis("Vertical");
 		UpdatePosition();
 		UpdateRotation();
+		UpdateFiring();
 	}
 
 	void UpdatePosition() {
@@ -44,6 +46,26 @@ public class PlayerController : MonoBehaviour {
 		float yaw = transform.localPosition.x * positionYawFactor;
 		float roll = xThrow * controlRollFactor;
 		transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
+	}
+
+	void UpdateFiring() {
+		if (CrossPlatformInputManager.GetButton("Fire1")) {
+			ActivateGuns();
+		} else {
+			DeactivateGuns();
+		}
+	}
+
+	void ActivateGuns() {
+		foreach(GameObject gun in guns) {
+			gun.SetActive(true);
+		}
+	}
+
+	void DeactivateGuns() {
+		foreach(GameObject gun in guns) {
+			gun.SetActive(false);
+		}
 	}
 
 	void OnPlayerDeath() {
